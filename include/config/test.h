@@ -15,13 +15,13 @@
 #undef P_PRIMAL_REVERSIONS
 #define P_PRIMAL_REVERSIONS              TRUE
 #undef P_ULTRA_BURST_FORMS
-#define P_ULTRA_BURST_FORMS              TRUE
+#define P_ULTRA_BURST_FORMS              FALSE
 #undef P_GIGANTAMAX_FORMS
-#define P_GIGANTAMAX_FORMS               TRUE
+#define P_GIGANTAMAX_FORMS               FALSE
 #undef P_TERA_FORMS
-#define P_TERA_FORMS                     TRUE
+#define P_TERA_FORMS                     FALSE
 #undef P_FUSION_FORMS
-#define P_FUSION_FORMS                   TRUE
+#define P_FUSION_FORMS                   FALSE
 #undef P_ALOLAN_FORMS
 #define P_ALOLAN_FORMS                   TRUE
 #undef P_GALARIAN_FORMS
