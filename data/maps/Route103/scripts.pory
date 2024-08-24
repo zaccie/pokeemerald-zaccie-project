@@ -290,19 +290,20 @@ Route103_EventScript_Isabelle::
 	end
 
 Route103_Text_MayRoute103Pokemon:
-	.string "MAY: Let's see… The POKéMON found\n"
-	.string "on ROUTE 103 include…$"
+	.string "MAY: Let's see… On ROUTE 103\n"
+	.string "I found this POKéMON…\p"
+	.string "and this one… and this one too.$"
 
 Route103_Text_MayLetsBattle:
-	.string "Oh, hi, {PLAYER}{KUN}!\p"
-	.string "I see, my dad gave you\n"
-	.string "a POKéMON as a gift?\p"
-	.string "Since we're here, let's have a quick\n"
-	.string "battle!\p"
+	.string "Oh! hey, {PLAYER}{KUN}!\p"
+	.string "Oh! My dad gave you\n"
+	.string "a POKéMON as a gift, huh?\p"
+	.string "Why don't we go ahead and\n"
+	.string "have a quick battle!\p"
 	.string "Wait, dad only gave you\n"
 	.string "one POKéMON?\p"
-	.string "I'll just use one POKéMON\n"
-	.string "to teach you the ropes!.$"
+	.string "Okay, I'll use one POKéMON\n"
+	.string "to teach you the ropes!$"
 
 Route103_Text_MayDefeated:
 	.string "Wow! That's great!\n"

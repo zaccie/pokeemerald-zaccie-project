@@ -73,6 +73,8 @@ Comments can be added as C comment blocks
 /*Comments can also be on a single line*/
 
 
+
+
 === TRAINER_NONE ===
 Name:
 Class: Pkmn Trainer 1
@@ -16873,3 +16875,172 @@ Double Battle: No
 Kyogre
 Level: 5
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+/*Comments can also be on a single line*/
+/*updated trainers below here*/
+
+/*Rival Male Battles*/
+
+=== TRAINER_BRENDAN_LAB_DOUBLE_MUDKIP ===
+Name: BRENDAN
+Class: Rival
+Pic: Brendan
+Gender: Male
+Music: Male
+Double Battle: Yes
+AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching
+
+Treecko (M)  
+Ability: Overgrow  
+Level: 5    
+Timid Nature  
+IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe  
+- Leer  
+- Pound  
+- Leafage
+
+Riolu (M)  
+Ability: Inner Focus  
+Level: 5   
+Adamant Nature  
+IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe  
+- Endure  
+- Quick Attack  
+- Feint
+
+=== TRAINER_BRENDAN_LAB_DOUBLE_TORCHIC ===
+Name: BRENDAN
+Class: Rival
+Pic: Brendan
+Gender: Male
+Music: Male
+Double Battle: Yes
+AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching
+
+Mudkip (F)  
+Ability: Torrent  
+Level: 5  
+Adamant Nature  
+IVs: 20 HP / 20 Def / 20 SpA / 20 SpD / 20 Spe  
+- Growl  
+- Tackle  
+- Water Gun
+
+Riolu (M)  
+Ability: Inner Focus  
+Level: 5   
+Adamant Nature  
+IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe  
+- Endure  
+- Quick Attack  
+- Feint
+
+=== TRAINER_BRENDAN_LAB_DOUBLE_TREEKO ===
+Name: BRENDAN
+Class: Rival
+Pic: Brendan
+Gender: Male
+Music: Male
+Double Battle: Yes
+AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching
+
+Torchic (F)  
+Ability: Speed Boost  
+Level: 5   
+Adamant Nature  
+IVs: 20 HP / 20 Def / 20 SpA / 20 SpD / 20 Spe  
+- Growl  
+- Scratch  
+- Ember
+
+Riolu (M)  
+Ability: Inner Focus  
+Level: 5   
+Adamant Nature  
+IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe  
+- Endure  
+- Quick Attack  
+- Feint
+
+/*Rival Female Battles Rival Female Battles Rival Female Battles Rival Female Battles Rival Female Battles Rival Female Battles*/
+
+=== TRAINER_MAY_LAB_DOUBLE_MUDKIP ===
+Name: MAY
+Class: Rival
+Pic: May
+Gender: Male
+Music: Male
+Double Battle: Yes
+AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching
+
+Treecko (M)  
+Ability: Overgrow  
+Level: 5    
+Timid Nature  
+IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe  
+- Leer  
+- Pound  
+- Leafage
+
+Riolu (M)  
+Ability: Inner Focus  
+Level: 5   
+Adamant Nature  
+IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe  
+- Endure  
+- Quick Attack  
+- Feint
+
+=== TRAINER_MAY_LAB_DOUBLE_TORCHIC ===
+Name: MAY
+Class: Rival
+Pic: May
+Gender: Male
+Music: Male
+Double Battle: Yes
+AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching
+
+Mudkip (F)  
+Ability: Torrent  
+Level: 5  
+Adamant Nature  
+IVs: 20 HP / 20 Def / 20 SpA / 20 SpD / 20 Spe  
+- Growl  
+- Tackle  
+- Water Gun
+
+Riolu (M)  
+Ability: Inner Focus  
+Level: 5   
+Adamant Nature  
+IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe  
+- Endure  
+- Quick Attack  
+- Feint
+
+=== TRAINER_MAY_LAB_DOUBLE_TREEKO ===
+Name: MAY
+Class: Rival
+Pic: May
+Gender: Male
+Music: Male
+Double Battle: Yes
+AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching
+
+Torchic (F)  
+Ability: Speed Boost  
+Level: 5   
+Adamant Nature  
+IVs: 20 HP / 20 Def / 20 SpA / 20 SpD / 20 Spe  
+- Growl  
+- Scratch  
+- Ember
+
+Riolu (M)  
+Ability: Inner Focus  
+Level: 5   
+Adamant Nature  
+IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe  
+- Endure  
+- Quick Attack  
+- Feint

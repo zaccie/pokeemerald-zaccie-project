@@ -516,10 +516,6 @@ LittlerootTown_ProfessorBirchsLab_EventScript_GivePokedex::
 	call LittlerootTown_ProfessorBirchsLab_EventScript_ReceivePokedex
 	msgbox LittlerootTown_ProfessorBirchsLab_Text_ExplainPokedex, MSGBOX_DEFAULT
 	closemessage
-	applymovement LOCALID_RIVAL, LittlerootTown_ProfessorBirchsLab_Movement_RivalApproachPlayer
-	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterRight
-	waitmovement 0
 	checkplayergender
 	call_if_eq VAR_RESULT, MALE, LittlerootTown_ProfessorBirchsLab_EventScript_MayGivePokeBalls
 	call_if_eq VAR_RESULT, FEMALE, LittlerootTown_ProfessorBirchsLab_EventScript_BrendanGivePokeBalls
@@ -537,6 +533,7 @@ LittlerootTown_ProfessorBirchsLab_EventScript_MayGivePokeBalls::
 	call_if_eq VAR_RESULT, FALSE, LittlerootTown_ProfessorBirchsLab_EventScript_MayNoRoomForPokeBalls
 	msgbox LittlerootTown_ProfessorBirchsLab_Text_CatchCutePokemonWithPokeBalls, MSGBOX_DEFAULT
 	setvar VAR_RESULT, 0
+	call LittlerootTown_ProfessorBirchsLab_EventScript_TalkAboutDoubles
 	return
 
 LittlerootTown_ProfessorBirchsLab_EventScript_BrendanGivePokeBalls::
@@ -545,6 +542,7 @@ LittlerootTown_ProfessorBirchsLab_EventScript_BrendanGivePokeBalls::
 	call_if_eq VAR_RESULT, FALSE, LittlerootTown_ProfessorBirchsLab_EventScript_BrendanNoRoomForPokeBalls
 	msgbox LittlerootTown_ProfessorBirchsLab_Text_CatchCoolPokemonWithPokeBalls, MSGBOX_DEFAULT
 	setvar VAR_RESULT, 1
+	call LittlerootTown_ProfessorBirchsLab_EventScript_TalkAboutDoubles
 	return
 
 LittlerootTown_ProfessorBirchsLab_EventScript_ReceivePokedex::
@@ -570,11 +568,6 @@ LittlerootTown_ProfessorBirchsLab_EventScript_MayNoRoomForPokeBalls::
 LittlerootTown_ProfessorBirchsLab_EventScript_BrendanNoRoomForPokeBalls::
 	msgbox LittlerootTown_ProfessorBirchsLab_Text_HeyYourBagsFull, MSGBOX_DEFAULT
 	return
-
-LittlerootTown_ProfessorBirchsLab_Movement_RivalApproachPlayer:
-	walk_down
-	walk_in_place_faster_left
-	step_end
 
 LittlerootTown_ProfessorBirchsLab_EventScript_Machine::
 	msgbox LittlerootTown_ProfessorBirchsLab_Text_SeriousLookingMachine, MSGBOX_SIGN
@@ -712,8 +705,8 @@ LittlerootTown_ProfessorBirchsLab_Text_WhyNotGiveNicknameToMon:
 LittlerootTown_ProfessorBirchsLab_Text_MightBeGoodIdeaToGoSeeRival:
 	.string "PROF. BIRCH: If you work at POKéMON\n"
 	.string "and gain experience, I think you'll make\l"
-	.string "an extremely good TRAINER.\p"
-	.string "My kid, {RIVAL}, is also studying\n"
+	.string "a pretty excellent TRAINER.\p"
+	.string "{RIVAL}, is also studying\n"
 	.string "POKéMON while helping me out.\p"
 	.string "{PLAYER}{KUN}, don't you think it might be\n"
 	.string "a good idea to go see {RIVAL}?$"
@@ -738,29 +731,30 @@ LittlerootTown_ProfessorBirchsLab_Text_BirchRivalGoneHome:
 
 LittlerootTown_ProfessorBirchsLab_Text_HeardYouBeatRivalTakePokedex:
 	.string "PROF. BIRCH: Oh, hi, {PLAYER}{KUN}!\p"
-	.string "I heard you beat {RIVAL} on\n"
-	.string "your first try. That's excellent!\p"
+	.string "So I hear you beat {RIVAL} on\n"
+	.string "your first try. That's amazing!\p"
 	.string "{RIVAL}'s been helping with my research\n"
 	.string "for a long time.\p"
-	.string "{RIVAL} has an extensive history as\n"
-	.string "a TRAINER already.\p"
-	.string "Here, {PLAYER}{KUN}, I ordered this for my\n"
-	.string "research, but I think you should have\l"
-	.string "this POKéDEX.$"
+	.string "So she has a pretty long\n"
+	.string "history as a TRAINER already.\p"
+	.string "{PLAYER}{KUN}, I ordered this POKéDEX for my\n"
+	.string "research, but I think you should take it.$"
 
 LittlerootTown_ProfessorBirchsLab_Text_ReceivedPokedex:
 	.string "{PLAYER} received the POKéDEX!$"
 
 LittlerootTown_ProfessorBirchsLab_Text_ExplainPokedex:
-	.string "PROF. BIRCH: The POKéDEX is a high-tech\n"
+	.string "PROF. BIRCH: That POKéDEX is a high-tech\n"
 	.string "tool that automatically makes a record\l"
 	.string "of any POKéMON you meet or catch.\p"
-	.string "My kid, {RIVAL}, goes everywhere\n"
-	.string "with it.\p"
-	.string "Whenever my kid catches a rare POKéMON\n"
+	.string "{RIVAL} takes theirs with them\n"
+	.string "everywhere they go.\p"
+	.string "Whenever they catch a rare POKéMON\n"
 	.string "and records its data in the POKéDEX,\l"
-	.string "why, {RIVAL} looks for me while I'm out\l"
-	.string "doing fieldwork, and shows me.$"
+	.string "{RIVAL} looks for me while I'm out doing\l"
+	.string "fieldwork, and shows me.\p"
+	.string "I'd love it if you came back from.\l"
+	.string "time to time to show me your progress.$"
 
 LittlerootTown_ProfessorBirchsLab_Text_CountlessPokemonAwait:
 	.string "PROF. BIRCH: Countless POKéMON\n"
@@ -1014,7 +1008,7 @@ if(var(VAR_UNUSED_0x404E) == 1){
 			msgbox("Recieved Pidgey.")
 			removeobject(7)
 			setflag(FLAG_UNUSED_0x020)
-			setvar(VAR_UNUSED_0x404E, 2)
+			setvar(VAR_UNUSED_0x404E, 3)
 			call(NicknamePartyMon)
 		}
 		else{
@@ -1111,8 +1105,102 @@ script NicknamePartyMon{
 	}
 }
 
+script LittlerootTown_ProfessorBirchsLab_RivalDoubleBattle_LeftOne {
+	lockall
+	applymovement(LOCALID_RIVAL, BirchsLab_RivalDoubleBattle_LeftOne)
+	waitmovement(0)
+	special(HealPlayerParty)
+	checkplayergender
+	if(var(VAR_RESULT) == MALE){	
+			switch(var(VAR_STARTER_MON)) {
+    case 0: trainerbattle_double(TRAINER_MAY_LAB_DOUBLE_TREEKO, BirchsLab_RivalDoubleBattle_Intro_May, BirchsLab_RivalDoubleBattle_Defeated_May, LabDoubleFailSafe)
+    case 1: trainerbattle_double(TRAINER_MAY_LAB_DOUBLE_TORCHIC, BirchsLab_RivalDoubleBattle_Intro_May, BirchsLab_RivalDoubleBattle_Defeated_May, LabDoubleFailSafe)
+    case 2: trainerbattle_double(TRAINER_MAY_LAB_DOUBLE_MUDKIP, BirchsLab_RivalDoubleBattle_Intro_May, BirchsLab_RivalDoubleBattle_Defeated_May, LabDoubleFailSafe)}
+	} else{
+			switch(var(VAR_STARTER_MON)) {
+    case 0: trainerbattle_double(TRAINER_BRENDAN_LAB_DOUBLE_TREEKO, BirchsLab_RivalDoubleBattle_Intro_Brendan, BirchsLab_RivalDoubleBattle_Defeated_Brendan, LabDoubleFailSafe)
+    case 1: trainerbattle_double(TRAINER_BRENDAN_LAB_DOUBLE_TORCHIC, BirchsLab_RivalDoubleBattle_Intro_Brendan, BirchsLab_RivalDoubleBattle_Defeated_Brendan, LabDoubleFailSafe)
+    case 2: trainerbattle_double(TRAINER_BRENDAN_LAB_DOUBLE_MUDKIP, BirchsLab_RivalDoubleBattle_Intro_Brendan, BirchsLab_RivalDoubleBattle_Defeated_Brendan, LabDoubleFailSafe)
+	}
+	}
+}
+
+script LittlerootTown_ProfessorBirchsLab_RivalDoubleBattle_LeftTwo {
+	lockall
+	applymovement(LOCALID_RIVAL, BirchsLab_RivalDoubleBattle_LeftTwo)
+	waitmovement(0)
+	special(HealPlayerParty)
+	checkplayergender
+	if(var(VAR_RESULT) == MALE){	
+			switch(var(VAR_STARTER_MON)) {
+    case 0: trainerbattle_double(TRAINER_MAY_LAB_DOUBLE_TREEKO, BirchsLab_RivalDoubleBattle_Intro_May, BirchsLab_RivalDoubleBattle_Defeated_May, LabDoubleFailSafe)
+    case 1: trainerbattle_double(TRAINER_MAY_LAB_DOUBLE_TORCHIC, BirchsLab_RivalDoubleBattle_Intro_May, BirchsLab_RivalDoubleBattle_Defeated_May, LabDoubleFailSafe)
+    case 2: trainerbattle_double(TRAINER_MAY_LAB_DOUBLE_MUDKIP, BirchsLab_RivalDoubleBattle_Intro_May, BirchsLab_RivalDoubleBattle_Defeated_May, LabDoubleFailSafe)}
+	} else{
+			switch(var(VAR_STARTER_MON)) {
+    case 0: trainerbattle_double(TRAINER_BRENDAN_LAB_DOUBLE_TREEKO, BirchsLab_RivalDoubleBattle_Intro_Brendan, BirchsLab_RivalDoubleBattle_Defeated_Brendan, LabDoubleFailSafe)
+    case 1: trainerbattle_double(TRAINER_BRENDAN_LAB_DOUBLE_TORCHIC, BirchsLab_RivalDoubleBattle_Intro_Brendan, BirchsLab_RivalDoubleBattle_Defeated_Brendan, LabDoubleFailSafe)
+    case 2: trainerbattle_double(TRAINER_BRENDAN_LAB_DOUBLE_MUDKIP, BirchsLab_RivalDoubleBattle_Intro_Brendan, BirchsLab_RivalDoubleBattle_Defeated_Brendan, LabDoubleFailSafe)
+	}
+	}
+}
+
+script LittlerootTown_ProfessorBirchsLab_RivalDoubleBattle_LeftNone {
+	lockall
+	applymovement(LOCALID_RIVAL, BirchsLab_RivalDoubleBattle_LeftNone)
+	waitmovement(0)
+	special(HealPlayerParty)
+	checkplayergender
+	if(var(VAR_RESULT) == MALE){	
+			switch(var(VAR_STARTER_MON)) {
+    case 0: trainerbattle_double(TRAINER_MAY_LAB_DOUBLE_TREEKO, BirchsLab_RivalDoubleBattle_Intro_May, BirchsLab_RivalDoubleBattle_Defeated_May, LabDoubleFailSafe)
+    case 1: trainerbattle_double(TRAINER_MAY_LAB_DOUBLE_TORCHIC, BirchsLab_RivalDoubleBattle_Intro_May, BirchsLab_RivalDoubleBattle_Defeated_May, LabDoubleFailSafe)
+    case 2: trainerbattle_double(TRAINER_MAY_LAB_DOUBLE_MUDKIP, BirchsLab_RivalDoubleBattle_Intro_May, BirchsLab_RivalDoubleBattle_Defeated_May, LabDoubleFailSafe)}
+	} else{
+			switch(var(VAR_STARTER_MON)) {
+    case 0: trainerbattle_double(TRAINER_BRENDAN_LAB_DOUBLE_TREEKO, BirchsLab_RivalDoubleBattle_Intro_Brendan, BirchsLab_RivalDoubleBattle_Defeated_Brendan, LabDoubleFailSafe)
+    case 1: trainerbattle_double(TRAINER_BRENDAN_LAB_DOUBLE_TORCHIC, BirchsLab_RivalDoubleBattle_Intro_Brendan, BirchsLab_RivalDoubleBattle_Defeated_Brendan, LabDoubleFailSafe)
+    case 2: trainerbattle_double(TRAINER_BRENDAN_LAB_DOUBLE_MUDKIP, BirchsLab_RivalDoubleBattle_Intro_Brendan, BirchsLab_RivalDoubleBattle_Defeated_Brendan, LabDoubleFailSafe)
+	}
+	}
+}
+
+movement BirchsLab_RivalDoubleBattle_LeftOne { 
+	face_player
+	walk_right
+}
+
+movement BirchsLab_RivalDoubleBattle_LeftTwo { 
+	face_player
+	walk_right * 2
+}
+
+movement BirchsLab_RivalDoubleBattle_LeftNone { 
+	face_player
+}
+
+text BirchsLab_RivalDoubleBattle_Defeated_May{
+	"MAY: {PLAYER}! You're amazing!"
+}
+
+text BirchsLab_RivalDoubleBattle_Intro_May{
+	format("MAY: Now that you finally have 2 POKéMON, Let's see how you handle this!")
+}
+
+text BirchsLab_RivalDoubleBattle_Defeated_Brendan{
+	"BRENDAN: {PLAYER}! You're amazing!"
+}
+
+text BirchsLab_RivalDoubleBattle_Intro_Brendan{
+	format("BRENDAN: Now that you finally have 2 POKéMON, Let's see how you handle this!")
+}
+
+text LabDoubleFailSafe{
+	"message zaccie"
+}
+
 text SecondStarter_NotChosen{
-	"You stop looking"
+	"You stop looking."
 }
 
 text SecondStarter_LockedBall{
@@ -1120,7 +1208,7 @@ text SecondStarter_LockedBall{
 }
 
 text SecondStarter_TryingToLeave{
-	format("PROF. BIRCH: {PLAYER}, please pick a second Pokemon!")
+	format("PROF. BIRCH: {PLAYER}, please pick a second POKéMON!")
 }
 
 script LittlerootTown_ProfessorBirchsLab_PreventExit_SecondStarter_RightMost {
@@ -1209,3 +1297,14 @@ movement PreventExit_SecondStarter_LeftFifth {
 	walk_up * 2
     face_up
 }
+
+script LittlerootTown_ProfessorBirchsLab_EventScript_TalkAboutDoubles {
+	lockall
+	msgbox(format("PROF. BIRCH: {PLAYER}! One last thing."))
+	msgbox(format("I'm sure you've seen your Father on TV with his Gym."))
+	msgbox(format("He left you two gifts in my care, just incase you set off on your own adventure. One of those I can give you now."))
+	msgbox(format("On the table behind me are a few POKéMON I was researching, I believe you taking one on your adventure will help!"))
+	waitmessage
+	release
+}
+

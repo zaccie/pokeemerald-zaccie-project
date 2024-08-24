@@ -43,6 +43,9 @@ LittlerootTown_MapScripts::
 LittlerootTown_OnTransition:
 	setflag FLAG_VISITED_LITTLEROOT_TOWN
 	call Common_EventScript_SetupRivalGfxId
+	call_if_eq VAR_STARTER_MON, 0, LittlerootTown_HideStarterInPen_0
+	call_if_eq VAR_STARTER_MON, 1, LittlerootTown_HideStarterInPen_1
+	call_if_eq VAR_STARTER_MON, 2, LittlerootTown_HideStarterInPen_2
 	call_if_eq VAR_LITTLEROOT_INTRO_STATE, 2, LittlerootTown_EventScript_MoveMomToMaysDoor
 	call_if_unset FLAG_RESCUED_BIRCH, LittlerootTown_EventScript_SetTwinPos
 	call_if_eq VAR_LITTLEROOT_TOWN_STATE, 3, LittlerootTown_EventScript_SetMomStandingInFrontOfDoorPos
@@ -56,6 +59,18 @@ LittlerootTown_OnTransition:
 
 LittlerootTown_EventScript_LeftLabAfterDexUpgrade::
 	setvar VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 3
+	return
+
+LittlerootTown_HideStarterInPen_0::
+	setflag FLAG_UNUSED_0x023
+	return
+
+LittlerootTown_HideStarterInPen_1::
+	setflag FLAG_UNUSED_0x024
+	return
+
+LittlerootTown_HideStarterInPen_2::
+	setflag FLAG_UNUSED_0x025
 	return
 
 LittlerootTown_EventScript_HideMapNamePopup::
